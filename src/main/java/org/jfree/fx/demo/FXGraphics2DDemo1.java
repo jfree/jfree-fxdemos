@@ -52,11 +52,11 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.chart.title.TextTitle;
+import org.jfree.chart.ui.HorizontalAlignment;
 import org.jfree.data.time.Month;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYDataset;
-import org.jfree.ui.HorizontalAlignment;
 
 /**
  * A demo showing the display of JFreeChart within a JavaFX application.
@@ -140,11 +140,11 @@ public class FXGraphics2DDemo1 extends Application {
         XYItemRenderer r = plot.getRenderer();
         if (r instanceof XYLineAndShapeRenderer) {
             XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) r;
-            renderer.setBaseShapesVisible(false);
+            renderer.setDefaultShapesVisible(false);
             renderer.setDrawSeriesLineAsPath(true);
             // set the default stroke for all series
             renderer.setAutoPopulateSeriesStroke(false);
-            renderer.setBaseStroke(new BasicStroke(3.0f, 
+            renderer.setDefaultStroke(new BasicStroke(3.0f, 
                     BasicStroke.CAP_ROUND, BasicStroke.JOIN_BEVEL), false);
             renderer.setSeriesPaint(0, Color.RED);
             renderer.setSeriesPaint(1, new Color(24, 123, 58));
@@ -153,7 +153,7 @@ public class FXGraphics2DDemo1 extends Application {
             renderer.setSeriesPaint(4, new Color(81, 176, 86));
             renderer.setSeriesPaint(5, new Color(0, 55, 122));
             renderer.setSeriesPaint(6, new Color(0, 92, 165));
-            renderer.setBaseLegendTextFont(new Font(fontName, Font.PLAIN, 14));
+            renderer.setDefaultLegendTextFont(new Font(fontName, Font.PLAIN, 14));
         }
 
         return chart;
