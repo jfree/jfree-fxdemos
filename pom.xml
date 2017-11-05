@@ -61,7 +61,20 @@
             <artifactId>jfreechart-fx</artifactId>
             <version>1.0.0</version>            
         </dependency>
- 
+        
+        <dependency>
+            <groupId>org.jfree</groupId>
+            <artifactId>jfreesvg</artifactId>
+            <version>3.2</version>
+        </dependency>
+      
+        <!-- OrsonPDF enables PDF export -->
+        <dependency>
+            <groupId>com.orsonpdf</groupId>
+            <artifactId>orsonpdf</artifactId>
+            <version>1.7</version>
+        </dependency>
+
     </dependencies>
     
     <build>
