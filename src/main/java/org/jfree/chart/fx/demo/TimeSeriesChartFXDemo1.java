@@ -104,8 +104,7 @@ public class TimeSeriesChartFXDemo1 extends Application {
             renderer.setDrawSeriesLineAsPath(true);
             // set the default stroke for all series
             renderer.setAutoPopulateSeriesStroke(false);
-            renderer.setDefaultStroke(new BasicStroke(3.0f, BasicStroke.CAP_ROUND, 
-                    BasicStroke.JOIN_BEVEL, 0f, new float[] { 4f, 4f}, 0f), false);
+            renderer.setDefaultStroke(new BasicStroke(3.0f));
             renderer.setSeriesPaint(0, Color.RED);
             renderer.setSeriesPaint(1, new Color(24, 123, 58));
             renderer.setSeriesPaint(2, new Color(149, 201, 136));
