@@ -4,3 +4,5 @@ This project contains demo applications for JavaFX that use the libraries create
 * JFreeChart FX 1.0.0
 * FXGraphics2D 1.6
 * Orson Charts FX 1.0
+
+![Orson Charts sample](http://www.object-refinery.com/orsoncharts/images/orsoncharts_fx.png)
