@@ -6,3 +6,7 @@ This project contains demo applications for JavaFX that use the libraries create
 * [Orson Charts FX](https://github.com/jfree/orson-charts-fx) 
 
 ![Orson Charts sample](http://www.object-refinery.com/orsoncharts/images/orsoncharts_fx.png)
+
+To run the demo:
+
+    mvn javafx:run
