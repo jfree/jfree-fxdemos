@@ -2,10 +2,10 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2017, Object Refinery Limited.
+ * Copyright (c) 2013-2020, Object Refinery Limited.
  * All rights reserved.
  *
- * http://www.object-refinery.com/orsoncharts/index.html
+ * https://github.com/jfree/jfree-fxdemos
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -44,12 +44,12 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import com.orsoncharts.Chart3D;
 import com.orsoncharts.Chart3DFactory;
+import com.orsoncharts.Orientation;
 import com.orsoncharts.TitleAnchor;
 import com.orsoncharts.data.PieDataset3D;
 import com.orsoncharts.data.StandardPieDataset3D;
 import com.orsoncharts.fx.Chart3DViewer;
 import com.orsoncharts.legend.LegendAnchor;
-import com.orsoncharts.util.Orientation;
 
 /**
  * A 3D pie chart demo for JavaFX.

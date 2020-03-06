@@ -2,10 +2,10 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2017, Object Refinery Limited.
+ * Copyright (c) 2013-2020, Object Refinery Limited.
  * All rights reserved.
  *
- * http://www.object-refinery.com/orsoncharts/index.html
+ * https://github.com/jfree/jfree-fxdemos
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -60,7 +60,7 @@ import com.orsoncharts.plot.XYZPlot;
 import com.orsoncharts.renderer.xyz.ScatterXYZRenderer;
 import com.orsoncharts.style.ChartStyler;
 import com.orsoncharts.style.ChartStyles;
-import com.orsoncharts.util.Anchor2D;
+import com.orsoncharts.graphics2d.Anchor2D;
 
 /**
  * A range marker demo for JavaFX.

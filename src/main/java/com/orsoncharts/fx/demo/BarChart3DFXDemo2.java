@@ -2,10 +2,10 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2017, Object Refinery Limited.
+ * Copyright (c) 2013-2020, Object Refinery Limited.
  * All rights reserved.
  *
- * http://www.object-refinery.com/orsoncharts/index.html
+ * https://github.com/jfree/jfree-fxdemos
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -37,6 +37,8 @@
 package com.orsoncharts.fx.demo;
 
 import static javafx.application.Application.launch;
+import java.awt.BasicStroke;
+import java.awt.Color;
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -54,10 +56,8 @@ import com.orsoncharts.fx.Chart3DViewer;
 import com.orsoncharts.label.StandardCategoryItemLabelGenerator;
 import com.orsoncharts.legend.LegendAnchor;
 import com.orsoncharts.plot.CategoryPlot3D;
-import com.orsoncharts.util.Orientation;
-import com.orsonpdf.PDFHints;
-import java.awt.BasicStroke;
-import java.awt.Color;
+import com.orsoncharts.Orientation;
+import org.jfree.pdf.PDFHints;
 
 /**
  * A 3D bar chart demo for JavaFX.

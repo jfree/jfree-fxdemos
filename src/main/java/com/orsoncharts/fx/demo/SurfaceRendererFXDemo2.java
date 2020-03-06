@@ -2,10 +2,10 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2016, Object Refinery Limited.
+ * Copyright (c) 2013-2020, Object Refinery Limited.
  * All rights reserved.
  *
- * http://www.object-refinery.com/orsoncharts/index.html
+ * https://github.com/jfree/jfree-fxdemos
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -44,8 +44,9 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import com.orsoncharts.Chart3D;
 import com.orsoncharts.Chart3DFactory;
-import com.orsoncharts.Range;
+import com.orsoncharts.Orientation;
 import com.orsoncharts.axis.ValueAxis3D;
+import com.orsoncharts.data.Range;
 import com.orsoncharts.data.function.Function3D;
 import com.orsoncharts.fx.Chart3DViewer;
 import com.orsoncharts.graphics3d.Dimension3D;
@@ -53,7 +54,6 @@ import com.orsoncharts.legend.LegendAnchor;
 import com.orsoncharts.plot.XYZPlot;
 import com.orsoncharts.renderer.RainbowScale;
 import com.orsoncharts.renderer.xyz.SurfaceRenderer;
-import com.orsoncharts.util.Orientation;
 
 /**
  * A surface renderer demo for JavaFX.

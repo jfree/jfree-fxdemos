@@ -2,10 +2,10 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2016, Object Refinery Limited.
+ * Copyright (c) 2013-2020, Object Refinery Limited.
  * All rights reserved.
  *
- * http://www.object-refinery.com/orsoncharts/index.html
+ * https://github.com/jfree/jfree-fxdemos
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -57,7 +57,7 @@ import com.orsoncharts.plot.XYZPlot;
 import com.orsoncharts.renderer.xyz.ScatterXYZRenderer;
 import com.orsoncharts.style.StandardChartStyle;
 import com.orsoncharts.table.TextElement;
-import com.orsoncharts.util.Orientation;
+import com.orsoncharts.Orientation;
 import java.awt.Font;
 import java.io.IOException;
 import java.io.InputStreamReader;

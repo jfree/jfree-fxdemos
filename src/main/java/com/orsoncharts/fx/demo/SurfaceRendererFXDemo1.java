@@ -2,10 +2,10 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2016, Object Refinery Limited.
+ * Copyright (c) 2013-2020, Object Refinery Limited.
  * All rights reserved.
  *
- * http://www.object-refinery.com/orsoncharts/index.html
+ * https://github.com/jfree/jfree-fxdemos
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -45,7 +45,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import com.orsoncharts.Chart3D;
 import com.orsoncharts.Chart3DFactory;
-import com.orsoncharts.Range;
+import com.orsoncharts.data.Range;
 import com.orsoncharts.axis.ValueAxis3D;
 import com.orsoncharts.data.function.Function3D;
 import com.orsoncharts.fx.Chart3DViewer;
@@ -71,12 +71,7 @@ public class SurfaceRendererFXDemo1 extends Application {
      * @return A surface chart. 
      */
     private static Chart3D createChart() {
-        Function3D function = new Function3D() {
-            @Override
-            public double getValue(double x, double z) {
-                return Math.cos(x) * Math.sin(z);
-            }
-        };
+        Function3D function = (double x, double z) -> Math.cos(x) * Math.sin(z);
         
         Chart3D chart = Chart3DFactory.createSurfaceChart(
                 "SurfaceRendererDemo1", 

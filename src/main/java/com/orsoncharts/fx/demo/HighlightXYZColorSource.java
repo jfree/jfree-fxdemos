@@ -2,10 +2,10 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2017, Object Refinery Limited.
+ * Copyright (c) 2013-2020, Object Refinery Limited.
  * All rights reserved.
  *
- * http://www.object-refinery.com/orsoncharts/index.html
+ * https://github.com/jfree/jfree-fxdemos
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -38,7 +38,7 @@ package com.orsoncharts.fx.demo;
 
 import java.awt.Color;
 
-import com.orsoncharts.Range;
+import com.orsoncharts.data.Range;
 import com.orsoncharts.data.xyz.XYZDataset;
 import com.orsoncharts.renderer.xyz.StandardXYZColorSource;
 import com.orsoncharts.renderer.xyz.XYZColorSource;
@@ -49,19 +49,19 @@ import com.orsoncharts.renderer.xyz.XYZColorSource;
 @SuppressWarnings("serial")
 public class HighlightXYZColorSource extends StandardXYZColorSource {
     
-    private XYZDataset dataset;
+    private final XYZDataset dataset;
     
     /** The range of x-values for the highlight region. */
-    private Range xRange;
+    private final Range xRange;
     
     /** The range of y-values for the highlight region. */
-    private Range yRange;
+    private final Range yRange;
     
     /** The range of z-values for the highlight region. */
-    private Range zRange;
+    private final Range zRange;
     
     /** The highlight color. */
-    private Color highlightColor;
+    private final Color highlightColor;
     
     /**
      * Creates a new instance.

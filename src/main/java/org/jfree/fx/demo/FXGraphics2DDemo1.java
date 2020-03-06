@@ -2,10 +2,10 @@
  * FXGraphics2DDemo1
  * =================
  * 
- * Copyright (c) 2014-2017, Object Refinery Limited.
+ * Copyright (c) 2014-2020, Object Refinery Limited.
  * All rights reserved.
  *
- * http://www.jfree.org/fxgraphics2d/index.html
+ * https://github.com/jfree/jfree-fxdemos
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -75,7 +75,7 @@ public class FXGraphics2DDemo1 extends Application {
         
         JFreeChart chart;
         
-        private FXGraphics2D g2;
+        private final FXGraphics2D g2;
         
         public ChartCanvas(JFreeChart chart) {
             this.chart = chart;

@@ -2,10 +2,10 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2016, Object Refinery Limited.
+ * Copyright (c) 2013-2020, Object Refinery Limited.
  * All rights reserved.
  *
- * http://www.object-refinery.com/orsoncharts/index.html
+ * https://github.com/jfree/jfree-fxdemos
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -59,7 +59,7 @@ import com.orsoncharts.plot.CategoryPlot3D;
 import com.orsoncharts.renderer.category.StackedBarRenderer3D;
 import com.orsoncharts.table.RectanglePainter;
 import com.orsoncharts.table.StandardRectanglePainter;
-import com.orsoncharts.util.Fit2D;
+import com.orsoncharts.graphics2d.Fit2D;
 
 /**
  * A 3D stacked bar chart demo for JavaFX.

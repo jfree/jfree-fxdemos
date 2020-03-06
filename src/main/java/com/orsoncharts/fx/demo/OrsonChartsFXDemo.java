@@ -2,10 +2,10 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2017, Object Refinery Limited.
+ * Copyright (c) 2013-2020, Object Refinery Limited.
  * All rights reserved.
  *
- * http://www.object-refinery.com/orsoncharts/index.html
+ * https://github.com/jfree/jfree-fxdemos
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -44,8 +44,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
@@ -70,16 +68,20 @@ import com.orsoncharts.fx.Chart3DCanvas;
 import com.orsoncharts.fx.Chart3DViewer;
 import com.orsoncharts.graphics3d.Dimension3D;
 import com.orsoncharts.graphics3d.Drawable3D;
-import com.orsoncharts.interaction.fx.FXChart3DMouseEvent;
+import com.orsoncharts.fx.interaction.FXChart3DMouseEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Demo application for Orson Charts in JavaFX.
  */
 public class OrsonChartsFXDemo extends Application {
 
+    private static final Logger LOGGER = Logger.getLogger(OrsonChartsFXDemo.class.getName());
+
     private static final String PREFIX = "com.orsoncharts.fx.demo.";
     
-    private Map<String, DemoDescription> descriptions;
+    private final Map<String, DemoDescription> descriptions;
     
     private SplitPane splitter;
         
@@ -208,16 +210,16 @@ public class OrsonChartsFXDemo extends Application {
                 "PieChart3DFXDemo1.java", 
                 ABOUT_PREFIX + "PieChart3DFXDemo1.html");
         this.descriptions.put(d.getFileName(), d);
-        n = new TreeItem<String>(d.getFileName());        
+        n = new TreeItem<>(d.getFileName());        
         pieChartsNode.getChildren().add(n);
 
         d = new DemoDescription(PREFIX + "PieChart3DFXDemo2", 
                 "PieChart3DFXDemo2.java", ABOUT_PREFIX + "PieChart3DFXDemo2.html");
         this.descriptions.put(d.getFileName(), d);
-        n = new TreeItem<String>(d.getFileName());        
+        n = new TreeItem<>(d.getFileName());        
         pieChartsNode.getChildren().add(n);
 
-        TreeItem<String> xyzChartsNode = new TreeItem<String>("XYZ Charts");
+        TreeItem<String> xyzChartsNode = new TreeItem<>("XYZ Charts");
         rootItem.getChildren().add(xyzChartsNode);
 
         d = new DemoDescription(PREFIX + "RangeMarkerFXDemo1", 
@@ -296,7 +298,7 @@ public class OrsonChartsFXDemo extends Application {
         return null;
     }
     
-    private double margin = 0.25;
+    private final double margin = 0.25;
     
     public void zoomToFit(Drawable3D drawable, Dimension size) {
         int w = (int) (size.getWidth() * (1.0 - this.margin));
@@ -355,15 +357,15 @@ public class OrsonChartsFXDemo extends Application {
                 this.chartDescription.getEngine().load(urlStr);
                 
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(OrsonChartsFXDemo.class.getName()).log(Level.SEVERE, null, ex);
+                LOGGER.log(Level.SEVERE, null, ex);
             } catch (SecurityException ex) {
-                Logger.getLogger(OrsonChartsFXDemo.class.getName()).log(Level.SEVERE, null, ex);
+                LOGGER.log(Level.SEVERE, null, ex);
             } catch (IllegalAccessException ex) {
-                Logger.getLogger(OrsonChartsFXDemo.class.getName()).log(Level.SEVERE, null, ex);
+                LOGGER.log(Level.SEVERE, null, ex);
             } catch (IllegalArgumentException ex) {
-                Logger.getLogger(OrsonChartsFXDemo.class.getName()).log(Level.SEVERE, null, ex);
+                LOGGER.log(Level.SEVERE, null, ex);
             } catch (InvocationTargetException ex) {
-                Logger.getLogger(OrsonChartsFXDemo.class.getName()).log(Level.SEVERE, null, ex);
+                LOGGER.log(Level.SEVERE, null, ex);
             }
 
         }

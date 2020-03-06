@@ -2,10 +2,10 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2017, Object Refinery Limited.
+ * Copyright (c) 2013-2020, Object Refinery Limited.
  * All rights reserved.
  *
- * http://www.object-refinery.com/orsoncharts/index.html
+ * https://github.com/jfree/jfree-fxdemos
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -48,7 +48,7 @@ import com.orsoncharts.graphics3d.RenderedElement;
 import com.orsoncharts.interaction.InteractiveElementType;
 import com.orsoncharts.interaction.KeyedValues3DItemSelection;
 import com.orsoncharts.interaction.StandardKeyedValues3DItemSelection;
-import com.orsoncharts.interaction.fx.FXChart3DMouseEvent;
+import com.orsoncharts.fx.interaction.FXChart3DMouseEvent;
 import com.orsoncharts.label.StandardCategoryItemLabelGenerator;
 import com.orsoncharts.legend.LegendAnchor;
 import com.orsoncharts.marker.CategoryMarker;
@@ -76,13 +76,13 @@ public class CategoryMarkerFXDemo1 extends Application {
     
     static class CustomDemoNode extends BorderPane {
         
-        private Chart3DViewer chartViewer;
+        private final Chart3DViewer chartViewer;
 
         private String selectedRowKey;
         
         private String selectedColumnKey;
         
-        private CheckBox itemLabelCheckBox;
+        private final CheckBox itemLabelCheckBox;
         
         public CustomDemoNode(Chart3D chart) {
             this.chartViewer = new Chart3DViewer(chart);

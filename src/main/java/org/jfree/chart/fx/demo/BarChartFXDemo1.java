@@ -2,7 +2,7 @@
  * BarChartFXDemo1.java
  * ====================
  * 
- * Copyright (c) 2014, 2017 Object Refinery Limited.
+ * Copyright (c) 2014-2020 Object Refinery Limited.
  * All rights reserved.
  *
  * https://github.com/jfree/jfree-fxdemos
@@ -88,6 +88,10 @@ public class BarChartFXDemo1 extends Application implements ChartMouseListenerFX
                 + "format (lower bars = better performance)"));
         chart.setBackgroundPaint(Color.white);
         CategoryPlot plot = (CategoryPlot) chart.getPlot();
+
+        // set transparent background paint, so the background color of the parent is used
+//        java.awt.Color transparent = new java.awt.Color(1.0f, 1.0f, 1.0f, 0f);
+//        chart.setBackgroundPaint(transparent);
 
         NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
         rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
