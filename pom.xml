@@ -91,7 +91,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>com.orsoncharts.fx.demo.OrsonChartsFXDemo</mainClass>
+                    <mainClass>org.jfree.chart3d.fx.demo.OrsonChartsFXDemo</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -140,7 +140,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.orsoncharts.fx.demo.OrsonChartsFXDemo</mainClass>
+                            <mainClass>org.jfree.chart3d.fx.demo.OrsonChartsFXDemo</mainClass>
                         </manifest>
                     </archive>                
                 </configuration>

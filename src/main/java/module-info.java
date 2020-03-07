@@ -13,7 +13,7 @@ module org.jfree.fx.demos {
     requires org.jfree.jfreechart;
     requires org.jfree.chart.fx;
     requires org.jfree.fxgraphics2d;
-    exports com.orsoncharts.fx.demo;
+    exports org.jfree.chart3d.fx.demo;
     exports org.jfree.chart.fx.demo;
     exports org.jfree.fx.demo;
 }
