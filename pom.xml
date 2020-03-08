@@ -43,7 +43,6 @@
     </developers>
 
     <dependencies>
-
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -77,6 +76,11 @@
             <version>2.0-SNAPSHOT</version>            
         </dependency>
 
+        <dependency>
+            <groupId>org.jfree</groupId>
+            <artifactId>org.jfree.svg</artifactId>
+            <version>4.0</version>            
+        </dependency>
         <dependency>
             <groupId>org.jfree</groupId>
             <artifactId>org.jfree.pdf</artifactId>
