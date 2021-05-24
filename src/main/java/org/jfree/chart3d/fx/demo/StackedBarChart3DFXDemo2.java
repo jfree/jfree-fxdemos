@@ -2,7 +2,7 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2020, Object Refinery Limited.
+ * Copyright (c) 2013-2021, Object Refinery Limited.
  * All rights reserved.
  *
  * https://github.com/jfree/jfree-fxdemos
@@ -175,6 +175,11 @@ public class StackedBarChart3DFXDemo2 extends Application {
         return chart;
     }
     
+    /**
+     * Creates and returns a node for the demo chart.
+     * 
+     * @return A node for the demo chart.
+     */
     public static Node createDemoNode() {
         CategoryDataset3D dataset = createDataset();
         Chart3D chart = createChart(dataset);

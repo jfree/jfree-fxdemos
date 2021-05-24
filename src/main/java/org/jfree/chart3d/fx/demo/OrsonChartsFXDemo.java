@@ -2,7 +2,7 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2020, Object Refinery Limited.
+ * Copyright (c) 2013-2021, Object Refinery Limited.
  * All rights reserved.
  *
  * https://github.com/jfree/jfree-fxdemos
@@ -298,7 +298,13 @@ public class OrsonChartsFXDemo extends Application {
     }
     
     private final double margin = 0.25;
-    
+
+    /**
+     * Adjusts the zoom to fit the chart within the specified dimensions.
+     * 
+     * @param drawable  the drawable ({@code null} not permitted).
+     * @param size  the new dimensions ({@code null} not permitted).
+     */
     public void zoomToFit(Drawable3D drawable, Dimension size) {
         int w = (int) (size.getWidth() * (1.0 - this.margin));
         int h = (int) (size.getHeight() * (1.0 - this.margin));

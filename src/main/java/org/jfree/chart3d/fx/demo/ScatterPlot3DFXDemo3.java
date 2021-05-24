@@ -2,7 +2,7 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2020, Object Refinery Limited.
+ * Copyright (c) 2013-2021, Object Refinery Limited.
  * All rights reserved.
  *
  * https://github.com/jfree/jfree-fxdemos
@@ -118,6 +118,11 @@ public class ScatterPlot3DFXDemo3 extends Application {
         return pane;
     }
 
+    /**
+     * Creates and returns the datasets for the chart.
+     * 
+     * @return The datasets.
+     */
     public static XYZDataset[] createDatasets() {
         XYZDataset[] datasets = new XYZDataset[4];
         datasets[0] = createDataset("sepal length", "sepal width", 
@@ -130,7 +135,18 @@ public class ScatterPlot3DFXDemo3 extends Application {
                 "petal length");
         return datasets;
     }
-    
+
+    /**
+     * Creates the demo chart.
+     * 
+     * @param title  the title.
+     * @param dataset  the dataset.
+     * @param xLabel  a label for the x-axis.
+     * @param yLabel  a label for the y-axis.
+     * @param zLabel  a label for the z-axis.
+     * 
+     * @return The demo chart.
+     */
     public static Chart3D createChart(String title, XYZDataset dataset, 
             String xLabel, String yLabel, String zLabel) {
         Chart3D chart = Chart3DFactory.createScatterChart(null, null, 

@@ -2,7 +2,7 @@
  * BarChartFXDemo1.java
  * ====================
  * 
- * Copyright (c) 2014-2020 Object Refinery Limited.
+ * Copyright (c) 2014-2021 Object Refinery Limited.
  * All rights reserved.
  *
  * https://github.com/jfree/jfree-fxdemos

@@ -2,7 +2,7 @@
  * Orson Charts - Demo
  * ===================
  * 
- * Copyright (c) 2013-2020, Object Refinery Limited.
+ * Copyright (c) 2013-2021, Object Refinery Limited.
  * All rights reserved.
  *
  * https://github.com/jfree/jfree-fxdemos
@@ -47,7 +47,8 @@ import org.jfree.chart3d.renderer.xyz.XYZColorSource;
  */
 @SuppressWarnings("serial")
 public class HighlightXYZColorSource extends StandardXYZColorSource {
-    
+
+    /** The dataset. */
     private final XYZDataset dataset;
     
     /** The range of x-values for the highlight region. */
