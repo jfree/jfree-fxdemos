@@ -168,7 +168,14 @@ public class OrsonChartsFXDemo extends Application {
         n = new TreeItem<>(d.getFileName());        
         categoryChartsNode.getChildren().add(n);
 
-        d = new DemoDescription(PREFIX + "LineChart3DFXDemo1", 
+        d = new DemoDescription(PREFIX + "CategoryMarkerFXDemo2",
+                "CategoryMarkerFXDemo2.java", ABOUT_PREFIX
+                + "CategoryMarkerFXDemo2.html");
+        this.descriptions.put(d.getFileName(), d);
+        n = new TreeItem<>(d.getFileName());
+        categoryChartsNode.getChildren().add(n);
+
+        d = new DemoDescription(PREFIX + "LineChart3DFXDemo1",
                 "LineChart3DFXDemo1.java", ABOUT_PREFIX + "LineChart3DFXDemo1.html");
         this.descriptions.put(d.getFileName(), d);
         n = new TreeItem<>(d.getFileName());        

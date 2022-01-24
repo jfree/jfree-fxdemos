@@ -145,4 +145,70 @@ public class SampleData {
         return dataset;
     }
 
+    /**
+     * Creates a sample dataset (hard-coded for the purpose of keeping the
+     * demo self-contained - in practice you would normally read your data
+     * from a file, database or other source).
+     *
+     * @return A sample dataset.
+     */
+    public static CategoryDataset3D<String, String, String> createCompanyRevenueDataset2() {
+        StandardCategoryDataset3D<String, String, String> dataset
+                = new StandardCategoryDataset3D<>();
+
+        DefaultKeyedValues<String, Double> s1 = new DefaultKeyedValues<>();
+        s1.put("Q2/19", 141.0);
+        s1.put("Q3/19", 146.0);
+        s1.put("Q4/19", 153.0);
+        s1.put("Q1/20", 160.0);
+        s1.put("Q2/20", 163.0);
+        s1.put("Q3/20", 166.0);
+        s1.put("Q4/20", 166.0);
+        s1.put("Q1/21", 173.0);
+        s1.put("Q2/21", 180.0);
+        s1.put("Q3/21", 196.0);
+        dataset.addSeriesAsRow("New Relic", s1);
+
+        DefaultKeyedValues<String, Double> s3 = new DefaultKeyedValues<>();
+        s3.put("Q2/19", 123.0);
+        s3.put("Q3/19", 129.0);
+        s3.put("Q4/19", 143.0);
+        s3.put("Q1/20", 151.0);
+        s3.put("Q2/20", 156.0);
+        s3.put("Q3/20", 169.0);
+        s3.put("Q4/20", 183.0);
+        s3.put("Q1/21", 197.0);
+        s3.put("Q2/21", 210.0);
+        s3.put("Q3/21", 226.0);
+        dataset.addSeriesAsRow("Dynatrace", s3);
+
+        DefaultKeyedValues<String, Double> s2 = new DefaultKeyedValues<>();
+        s2.put("Q2/19", 83.0);
+        s2.put("Q3/19", 96.0);
+        s2.put("Q4/19", 114.0);
+        s2.put("Q1/20", 131.0);
+        s2.put("Q2/20", 140.0);
+        s2.put("Q3/20", 155.0);
+        s2.put("Q4/20", 178.0);
+        s2.put("Q1/21", 199.0);
+        s2.put("Q2/21", 234.0);
+        s2.put("Q3/21", 270.0);
+        dataset.addSeriesAsRow("Datadog", s2);
+
+        DefaultKeyedValues<String, Double> s4 = new DefaultKeyedValues<>();
+        s4.put("Q2/19", 517.0);
+        s4.put("Q3/19", 626.0);
+        s4.put("Q4/19", 791.0);
+        s4.put("Q1/20", 434.0);
+        s4.put("Q2/20", 492.0);
+        s4.put("Q3/20", 559.0);
+        s4.put("Q4/20", 745.0);
+        s4.put("Q1/21", 502.0);
+        s4.put("Q2/21", 606.0);
+        s4.put("Q3/21", 665.0);
+        dataset.addSeriesAsRow("Splunk", s4);
+
+        return dataset;
+    }
+
 }
