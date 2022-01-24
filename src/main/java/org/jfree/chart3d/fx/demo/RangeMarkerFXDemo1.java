@@ -72,10 +72,9 @@ public class RangeMarkerFXDemo1 extends Application {
      * @return A node for the demo chart.
      */
     public static Node createDemoNode() {
-        XYZDataset dataset = createDataset();
+        XYZDataset<String> dataset = createDataset();
         Chart3D chart = createChart(dataset);
-        Chart3DViewer viewer = new Chart3DViewer(chart);
-        return viewer;
+        return new Chart3DViewer(chart);
     }
 
     /**
@@ -85,7 +84,7 @@ public class RangeMarkerFXDemo1 extends Application {
      * 
      * @return A demo chart. 
      */
-    private static Chart3D createChart(XYZDataset dataset) {
+    private static Chart3D createChart(XYZDataset<String> dataset) {
         Chart3D chart = Chart3DFactory.createScatterChart("RangeMarkerDemo1", 
                 null, dataset, "X", "Y", "Z");
         chart.setStyle(ChartStyles.createOrson1Style());
@@ -154,7 +153,7 @@ public class RangeMarkerFXDemo1 extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         StackPane sp = new StackPane();
         sp.getChildren().add(createDemoNode());
         Scene scene = new Scene(sp, 768, 512);

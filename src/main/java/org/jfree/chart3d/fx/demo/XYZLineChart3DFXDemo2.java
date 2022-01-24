@@ -66,10 +66,9 @@ public class XYZLineChart3DFXDemo2 extends Application {
      * @return A node for the demo chart.
      */
     public static Node createDemoNode() {
-        XYZDataset dataset = createDataset();
+        XYZDataset<String> dataset = createDataset();
         Chart3D chart = createChart(dataset);
-        Chart3DViewer viewer = new Chart3DViewer(chart);
-        return viewer;
+        return new Chart3DViewer(chart);
     }
     
     private static XYZDataset<String> createDataset() {
@@ -86,16 +85,16 @@ public class XYZLineChart3DFXDemo2 extends Application {
         XYZSeries<String> jpy = new XYZSeries<>("JPY");
         try {
             line = in.readLine();  // ignore the first line
-	    while ((line = in.readLine()) != null) {
+            while ((line = in.readLine()) != null) {
                 String[] items = line.split(",");
-		LocalDate d = LocalDate.parse(items[0]);
-                aud.add(d.toEpochDay(), Double.valueOf(items[2]), 1);
-                brl.add(d.toEpochDay(), Double.valueOf(items[4]), 2);
-                chf.add(d.toEpochDay(), Double.valueOf(items[6]), 3);
-                cny.add(d.toEpochDay(), Double.valueOf(items[8]), 4);
-                eur.add(d.toEpochDay(), Double.valueOf(items[10]), 5);
-                gbp.add(d.toEpochDay(), Double.valueOf(items[12]), 6);
-                jpy.add(d.toEpochDay(), Double.valueOf(items[14]), 7);
+                LocalDate d = LocalDate.parse(items[0]);
+                aud.add(d.toEpochDay(), Double.parseDouble(items[2]), 1);
+                brl.add(d.toEpochDay(), Double.parseDouble(items[4]), 2);
+                chf.add(d.toEpochDay(), Double.parseDouble(items[6]), 3);
+                cny.add(d.toEpochDay(), Double.parseDouble(items[8]), 4);
+                eur.add(d.toEpochDay(), Double.parseDouble(items[10]), 5);
+                gbp.add(d.toEpochDay(), Double.parseDouble(items[12]), 6);
+                jpy.add(d.toEpochDay(), Double.parseDouble(items[14]), 7);
             }
             dataset.add(aud);
             dataset.add(brl);
@@ -110,7 +109,7 @@ public class XYZLineChart3DFXDemo2 extends Application {
         return dataset;
     }
     
-    private static Chart3D createChart(XYZDataset dataset) {
+    private static Chart3D createChart(XYZDataset<String> dataset) {
         Chart3D chart = Chart3DFactory.createXYZLineChart("XYZ Line Chart Demo", 
                 "Orson Charts", dataset, "Day", "Index", "Station");
         chart.setChartBoxColor(new Color(255, 255, 255, 128));
@@ -120,7 +119,7 @@ public class XYZLineChart3DFXDemo2 extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         StackPane sp = new StackPane();
         sp.getChildren().add(createDemoNode());
         Scene scene = new Scene(sp, 768, 512);

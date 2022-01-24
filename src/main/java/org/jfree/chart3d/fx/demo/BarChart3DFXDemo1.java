@@ -61,7 +61,7 @@ public class BarChart3DFXDemo1 extends Application {
      * 
      * @return A bar chart. 
      */
-    private static Chart3D createChart(CategoryDataset3D dataset) {
+    private static Chart3D createChart(CategoryDataset3D<String, String, String> dataset) {
         Chart3D chart = Chart3DFactory.createBarChart("Quarterly Revenues", 
                 "For some large IT companies", dataset, null, "Quarter", 
                 "$billion Revenues");
@@ -78,14 +78,13 @@ public class BarChart3DFXDemo1 extends Application {
      * @return A node for the demo chart.
      */
     public static Node createDemoNode() {
-        CategoryDataset3D dataset = SampleData.createCompanyRevenueDataset();
+        CategoryDataset3D<String, String, String> dataset = SampleData.createCompanyRevenueDataset();
         Chart3D chart = createChart(dataset);
-        Chart3DViewer viewer = new Chart3DViewer(chart);
-        return viewer;
+        return new Chart3DViewer(chart);
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         StackPane sp = new StackPane();
         sp.getChildren().add(createDemoNode());
         Scene scene = new Scene(sp, 768, 512);

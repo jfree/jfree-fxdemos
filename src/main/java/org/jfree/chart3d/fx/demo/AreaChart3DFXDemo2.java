@@ -65,7 +65,7 @@ public class AreaChart3DFXDemo2 extends Application {
      * 
      * @return An area chart. 
      */
-    private static Chart3D createChart(CategoryDataset3D dataset) {
+    private static Chart3D createChart(CategoryDataset3D<String, String, String> dataset) {
         Chart3D chart = Chart3DFactory.createAreaChart("AreaChart3DDemo2", 
                 "Chart created with Orson Charts", dataset, "Row", 
                 "Category", "Value");
@@ -87,7 +87,7 @@ public class AreaChart3DFXDemo2 extends Application {
      * 
      * @return A sample dataset.
      */
-    private static CategoryDataset3D createDataset() {    
+    private static CategoryDataset3D<String, String, String> createDataset() {
         StandardCategoryDataset3D<String, String, String> dataset 
                 = new StandardCategoryDataset3D<>();
                 
@@ -152,14 +152,13 @@ public class AreaChart3DFXDemo2 extends Application {
      * @return A node for the demo chart.
      */
     public static Node createDemoNode() {
-        CategoryDataset3D dataset = createDataset();
+        CategoryDataset3D<String, String, String> dataset = createDataset();
         Chart3D chart = createChart(dataset);
-        Chart3DViewer viewer = new Chart3DViewer(chart);
-        return viewer;
+        return new Chart3DViewer(chart);
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         StackPane sp = new StackPane();
         sp.getChildren().add(createDemoNode());
         Scene scene = new Scene(sp, 768, 512);

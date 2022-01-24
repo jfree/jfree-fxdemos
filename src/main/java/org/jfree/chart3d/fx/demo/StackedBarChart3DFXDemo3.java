@@ -71,10 +71,9 @@ public class StackedBarChart3DFXDemo3 extends Application {
      * @return A node for the demo chart.
      */
     public static Node createDemoNode() {
-        CategoryDataset3D dataset = createDataset();
+        CategoryDataset3D<String, String, String> dataset = createDataset();
         Chart3D chart = createChart(dataset);
-        Chart3DViewer viewer = new Chart3DViewer(chart);
-        return viewer;
+        return new Chart3DViewer(chart);
     }
 
     /**
@@ -84,7 +83,7 @@ public class StackedBarChart3DFXDemo3 extends Application {
      * 
      * @return A stacked bar chart.
      */
-    public static Chart3D createChart(CategoryDataset3D dataset) {
+     static Chart3D createChart(CategoryDataset3D<String, String, String> dataset) {
         Chart3D chart = Chart3DFactory.createStackedBarChart(
                 "The Sinking of the Titanic", 
                 "Survival data for 2,201 passengers", 
@@ -99,18 +98,18 @@ public class StackedBarChart3DFXDemo3 extends Application {
         chart.setBackground(background);
         chart.setChartBoxColor(new Color(255, 255, 255, 155));
         CategoryPlot3D plot = (CategoryPlot3D) chart.getPlot();
-        plot.setLegendLabelGenerator(new StandardCategoryLabelGenerator(
+        plot.setLegendLabelGenerator(new StandardCategoryLabelGenerator<String, String, String>(
                 StandardCategoryLabelGenerator.TOTAL_TEMPLATE));
         plot.setToolTipGenerator(new StandardCategoryItemLabelGenerator(
                 "%s, %s, %s = %4$.0f"));
         StandardCategoryAxis3D rowAxis 
                 = (StandardCategoryAxis3D) plot.getRowAxis();
-        rowAxis.setTickLabelGenerator(new StandardCategoryLabelGenerator(
+        rowAxis.setTickLabelGenerator(new StandardCategoryLabelGenerator<String, String, String>(
                 StandardCategoryLabelGenerator.TOTAL_TEMPLATE));
 
         StandardCategoryAxis3D columnAxis 
                 = (StandardCategoryAxis3D) plot.getColumnAxis();
-        columnAxis.setTickLabelGenerator(new StandardCategoryLabelGenerator(
+        columnAxis.setTickLabelGenerator(new StandardCategoryLabelGenerator<String, String, String>(
                 StandardCategoryLabelGenerator.TOTAL_TEMPLATE));
         columnAxis.setTickLabelOrientation(LabelOrientation.PARALLEL);
         columnAxis.setMaxTickLabelLevels(2);
@@ -127,7 +126,7 @@ public class StackedBarChart3DFXDemo3 extends Application {
      * 
      * @return A sample dataset.
      */
-    public static CategoryDataset3D createDataset() {
+     static CategoryDataset3D<String, String, String> createDataset() {
         
         StandardCategoryDataset3D<String, String, String> dataset 
                 = new StandardCategoryDataset3D<>();
@@ -156,7 +155,7 @@ public class StackedBarChart3DFXDemo3 extends Application {
     }
     
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         StackPane sp = new StackPane();
         sp.getChildren().add(createDemoNode());
         Scene scene = new Scene(sp, 768, 512);

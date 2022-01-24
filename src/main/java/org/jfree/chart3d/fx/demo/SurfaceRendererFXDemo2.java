@@ -66,8 +66,7 @@ public class SurfaceRendererFXDemo2 extends Application {
      */
     public static Node createDemoNode() {
         Chart3D chart = createChart();
-        Chart3DViewer viewer = new Chart3DViewer(chart);
-        return viewer;
+        return new Chart3DViewer(chart);
     }
     
     /**
@@ -97,7 +96,7 @@ public class SurfaceRendererFXDemo2 extends Application {
     }
     
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         StackPane sp = new StackPane();
         sp.getChildren().add(createDemoNode());
         Scene scene = new Scene(sp, 768, 512);

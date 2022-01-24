@@ -104,10 +104,9 @@ public class BarChartFXDemo1 extends Application implements ChartMouseListenerFX
      * Adds a chart viewer to the stage and displays it.
      * 
      * @param stage  the stage.
-     * @throws Exception if something goes wrong.
      */
     @Override 
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         CategoryDataset dataset = createDataset();
         JFreeChart chart = createChart(dataset); 
         ChartViewer viewer = new ChartViewer(chart);

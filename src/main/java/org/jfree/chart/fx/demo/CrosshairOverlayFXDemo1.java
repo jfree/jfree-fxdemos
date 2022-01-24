@@ -62,11 +62,11 @@ public class CrosshairOverlayFXDemo1 extends Application {
   
     static class MyDemoPane extends StackPane implements ChartMouseListenerFX {
         
-        private ChartViewer chartViewer;
+        private final ChartViewer chartViewer;
     
-        private Crosshair xCrosshair;
+        private final Crosshair xCrosshair;
     
-        private Crosshair yCrosshair;
+        private final Crosshair yCrosshair;
     
         public MyDemoPane() {
             XYDataset dataset = createDataset();
@@ -91,9 +91,7 @@ public class CrosshairOverlayFXDemo1 extends Application {
             crosshairOverlay.addDomainCrosshair(xCrosshair);
             crosshairOverlay.addRangeCrosshair(yCrosshair);
             
-            Platform.runLater(() -> {
-                this.chartViewer.getCanvas().addOverlay(crosshairOverlay);
-            });
+            Platform.runLater(() -> this.chartViewer.getCanvas().addOverlay(crosshairOverlay));
         }
 
         @Override
@@ -125,24 +123,21 @@ public class CrosshairOverlayFXDemo1 extends Application {
         for (int x = 0; x < 10; x++) {
             series.add(x, x + Math.random() * 4.0);
         }
-        XYSeriesCollection dataset = new XYSeriesCollection(series);
-        return dataset;
+        return new XYSeriesCollection(series);
     }
 
     private static JFreeChart createChart(XYDataset dataset) {
-        JFreeChart chart = ChartFactory.createXYLineChart(
+        return ChartFactory.createXYLineChart(
                 "CrosshairOverlayDemo1", "X", "Y", dataset);
-        return chart;
     }
 
     /**
      * Adds a chart viewer to the stage and displays it.
      * 
      * @param stage  the stage.
-     * @throws Exception if something goes wrong.
      */
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         stage.setScene(new Scene(new MyDemoPane())); 
         stage.setTitle("JFreeChart: CrosshairOverlayFXDemo1.java"); 
         stage.setWidth(700);

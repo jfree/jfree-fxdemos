@@ -48,7 +48,7 @@ import org.jfree.chart3d.renderer.xyz.XYZColorSource;
 public class HighlightXYZColorSource extends StandardXYZColorSource {
 
     /** The dataset. */
-    private final XYZDataset dataset;
+    private final XYZDataset<String> dataset;
     
     /** The range of x-values for the highlight region. */
     private final Range xRange;
@@ -72,7 +72,7 @@ public class HighlightXYZColorSource extends StandardXYZColorSource {
      * @param zRange  the z-range.
      * @param colors  the colors.
      */
-    public HighlightXYZColorSource(XYZDataset dataset, Color highlightColor, 
+    public HighlightXYZColorSource(XYZDataset<String> dataset, Color highlightColor,
             Range xRange, Range yRange, Range zRange, Color... colors) {
         super(colors);
         this.dataset = dataset;

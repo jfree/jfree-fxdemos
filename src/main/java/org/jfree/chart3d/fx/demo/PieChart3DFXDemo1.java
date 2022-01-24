@@ -63,8 +63,7 @@ public class PieChart3DFXDemo1 extends Application {
     public static Node createDemoNode() {
         PieDataset3D<String> dataset = createDataset();
         Chart3D chart = createChart(dataset);
-        Chart3DViewer viewer = new Chart3DViewer(chart);
-        return viewer;
+        return new Chart3DViewer(chart);
     }
     
     /**
@@ -78,7 +77,7 @@ public class PieChart3DFXDemo1 extends Application {
         Chart3D chart = Chart3DFactory.createPieChart(
                 "New Zealand Exports 2012", 
                 "http://www.stats.govt.nz/browse_for_stats/snapshots-of-nz/nz-in-profile-2013.aspx", 
-                createDataset());
+                dataset);
         chart.setTitleAnchor(TitleAnchor.TOP_LEFT);
         chart.setLegendPosition(LegendAnchor.BOTTOM_CENTER,
                 Orientation.HORIZONTAL);
@@ -107,7 +106,7 @@ public class PieChart3DFXDemo1 extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         StackPane sp = new StackPane();
         sp.getChildren().add(createDemoNode());
         Scene scene = new Scene(sp, 768, 512);

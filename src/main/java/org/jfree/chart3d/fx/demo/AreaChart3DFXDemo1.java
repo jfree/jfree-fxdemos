@@ -35,9 +35,6 @@
 
 package org.jfree.chart3d.fx.demo;
 
-import static javafx.application.Application.launch;
-import java.awt.BasicStroke;
-import java.awt.Color;
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -49,6 +46,8 @@ import org.jfree.chart3d.data.category.CategoryDataset3D;
 import org.jfree.chart3d.fx.Chart3DViewer;
 import org.jfree.chart3d.plot.CategoryPlot3D;
 import org.jfree.chart3d.renderer.category.AreaRenderer3D;
+
+import java.awt.*;
 
 /**
  * A 3D area chart demo for JavaFX.
@@ -62,7 +61,7 @@ public class AreaChart3DFXDemo1 extends Application {
      * 
      * @return An area chart. 
      */
-    public static Chart3D createChart(CategoryDataset3D dataset) {
+     static Chart3D createChart(CategoryDataset3D<String, String, String> dataset) {
         Chart3D chart = Chart3DFactory.createAreaChart(
                 "Reported Revenues By Quarter", 
                 "Large companies in the IT industry", dataset, "Company", 
@@ -84,14 +83,13 @@ public class AreaChart3DFXDemo1 extends Application {
      * @return A node for the demo chart.
      */
     public static Node createDemoNode() {
-        CategoryDataset3D dataset = SampleData.createCompanyRevenueDataset();
+        CategoryDataset3D<String, String, String> dataset = SampleData.createCompanyRevenueDataset();
         Chart3D chart = createChart(dataset);
-        Chart3DViewer viewer = new Chart3DViewer(chart);
-        return viewer;
+        return new Chart3DViewer(chart);
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         StackPane sp = new StackPane();
         sp.getChildren().add(createDemoNode());
         Scene scene = new Scene(sp, 768, 512);

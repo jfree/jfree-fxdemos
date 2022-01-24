@@ -59,10 +59,9 @@ public class StackedBarChart3DFXDemo1 extends Application {
      * @return A node for the demo chart.
      */
     public static Node createDemoNode() {
-        CategoryDataset3D dataset = createDataset();
+        CategoryDataset3D<String, String, String> dataset = createDataset();
         Chart3D chart = createChart(dataset);
-        Chart3DViewer viewer = new Chart3DViewer(chart);
-        return viewer;
+        return new Chart3DViewer(chart);
     }
 
     /**
@@ -72,11 +71,10 @@ public class StackedBarChart3DFXDemo1 extends Application {
      * 
      * @return A stacked bar chart. 
      */
-    private static Chart3D createChart(CategoryDataset3D dataset) {
-        Chart3D chart = Chart3DFactory.createStackedBarChart(
-                "Stacked Bar Chart", "Put the data source here", dataset, null, 
+    private static Chart3D createChart(CategoryDataset3D<String, String, String> dataset) {
+        return Chart3DFactory.createStackedBarChart(
+                "Stacked Bar Chart", "Put the data source here", dataset, null,
                 null, "Value");
-        return chart;    
     }
     
     /**
@@ -86,7 +84,7 @@ public class StackedBarChart3DFXDemo1 extends Application {
      * 
      * @return A sample dataset.
      */
-    private static CategoryDataset3D createDataset() {
+    private static CategoryDataset3D<String, String, String> createDataset() {
         
         StandardCategoryDataset3D<String, String, String> dataset 
                 = new StandardCategoryDataset3D<>();
@@ -137,7 +135,7 @@ public class StackedBarChart3DFXDemo1 extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         StackPane sp = new StackPane();
         sp.getChildren().add(createDemoNode());
         Scene scene = new Scene(sp, 768, 512);

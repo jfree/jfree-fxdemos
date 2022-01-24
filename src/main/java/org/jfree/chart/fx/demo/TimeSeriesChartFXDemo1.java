@@ -423,7 +423,7 @@ public class TimeSeriesChartFXDemo1 extends Application {
     }
 
     @Override 
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         XYDataset dataset = createDataset();
         JFreeChart chart = createChart(dataset); 
         ChartViewer viewer = new ChartViewer(chart);

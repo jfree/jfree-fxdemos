@@ -65,8 +65,7 @@ public class PieChart3DFXDemo2 extends Application {
     public static Node createDemoNode() {
         PieDataset3D<String> dataset = createDataset();
         Chart3D chart = createChart(dataset);
-        Chart3DViewer viewer = new Chart3DViewer(chart);
-        return viewer;
+        return new Chart3DViewer(chart);
     }
 
     /**
@@ -97,7 +96,7 @@ public class PieChart3DFXDemo2 extends Application {
     private static Chart3D createChart(PieDataset3D<String> dataset) {
         final Chart3D chart = Chart3DFactory.createPieChart("Orson Charts 3D", 
             "For more info see: http://www.object-refinery.com/orsoncharts/", 
-            createDataset());
+            dataset);
         chart.setTitleAnchor(TitleAnchor.TOP_LEFT);
         PiePlot3D plot = (PiePlot3D) chart.getPlot();
         plot.setLegendLabelGenerator(new StandardPieLabelGenerator(PERCENT_TEMPLATE));
@@ -107,7 +106,7 @@ public class PieChart3DFXDemo2 extends Application {
     }
     
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         StackPane sp = new StackPane();
         sp.getChildren().add(createDemoNode());
         Scene scene = new Scene(sp, 768, 512);

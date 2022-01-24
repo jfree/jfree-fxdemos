@@ -78,7 +78,7 @@ public class ScatterPlot3DFXDemo3 extends Application {
      */
     public static Node createDemoNode() {
         
-        XYZDataset[] datasets = createDatasets();
+        XYZDataset<String>[] datasets = createDatasets();
         Chart3D chart1 = createChart(
                 "Iris Dataset : Combination 1", datasets[0], "Sepal Length", 
                 "Sepal Width", "Petal Length");
@@ -122,8 +122,8 @@ public class ScatterPlot3DFXDemo3 extends Application {
      * 
      * @return The datasets.
      */
-    public static XYZDataset[] createDatasets() {
-        XYZDataset[] datasets = new XYZDataset[4];
+     static XYZDataset<String>[] createDatasets() {
+        XYZDataset<String>[] datasets = new XYZDataset[4];
         datasets[0] = createDataset("sepal length", "sepal width", 
                 "petal length");
         datasets[1] = createDataset("sepal length", "sepal width", 
@@ -146,7 +146,7 @@ public class ScatterPlot3DFXDemo3 extends Application {
      * 
      * @return The demo chart.
      */
-    public static Chart3D createChart(String title, XYZDataset dataset, 
+     static Chart3D createChart(String title, XYZDataset<String> dataset,
             String xLabel, String yLabel, String zLabel) {
         Chart3D chart = Chart3DFactory.createScatterChart(null, null, 
                 dataset, xLabel, yLabel, zLabel);
@@ -182,7 +182,7 @@ public class ScatterPlot3DFXDemo3 extends Application {
     }
     
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         StackPane sp = new StackPane();
         sp.getChildren().add(createDemoNode());
         Scene scene = new Scene(sp, 768, 512);

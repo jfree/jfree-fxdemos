@@ -94,7 +94,7 @@ public class OrsonChartsFXDemo extends Application {
     }
     
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
        
         TabPane tabPane = new TabPane();
         Tab tab1 = new Tab();
@@ -278,9 +278,7 @@ public class OrsonChartsFXDemo extends Application {
         TreeView<String> tree = new TreeView<> (rootItem);
         tree.getSelectionModel().selectedItemProperty().addListener(
             (ObservableValue<? extends TreeItem<String>> observableValue, 
-                    TreeItem<String> oldItem, TreeItem<String> newItem) -> {
-            selectDemo(newItem.getValue());
-        });
+                    TreeItem<String> oldItem, TreeItem<String> newItem) -> selectDemo(newItem.getValue()));
         StackPane root = new StackPane();
         root.getChildren().add(tree);
         return root;
@@ -295,8 +293,6 @@ public class OrsonChartsFXDemo extends Application {
         }
         return null;
     }
-    
-    private final double margin = 0.25;
 
     /**
      * Adjusts the zoom to fit the chart within the specified dimensions.
@@ -305,8 +301,9 @@ public class OrsonChartsFXDemo extends Application {
      * @param size  the new dimensions ({@code null} not permitted).
      */
     public void zoomToFit(Drawable3D drawable, Dimension size) {
-        int w = (int) (size.getWidth() * (1.0 - this.margin));
-        int h = (int) (size.getHeight() * (1.0 - this.margin));
+        double margin = 0.25;
+        int w = (int) (size.getWidth() * (1.0 - margin));
+        int h = (int) (size.getHeight() * (1.0 - margin));
         Dimension2D target = new Dimension(w, h);
         Dimension3D d3d = drawable.getDimensions();
         float distance = drawable.getViewPoint().optimalDistance(target, 
@@ -334,9 +331,7 @@ public class OrsonChartsFXDemo extends Application {
                     borderPane.setCenter(node);
                     if (node instanceof Chart3DViewer) {
                         Chart3DViewer v = (Chart3DViewer) node;
-                        v.addEventHandler(FXChart3DMouseEvent.MOUSE_CLICKED, (FXChart3DMouseEvent event) -> {
-                            System.out.println(event.getElement());
-                        });
+                        v.addEventHandler(FXChart3DMouseEvent.MOUSE_CLICKED, (FXChart3DMouseEvent event) -> System.out.println(event.getElement()));
                         v.prefWidthProperty().bind(borderPane.widthProperty());
                         v.prefHeightProperty().bind(borderPane.heightProperty());
                         zoomToFit(v.getChart(), new Dimension(
@@ -360,15 +355,7 @@ public class OrsonChartsFXDemo extends Application {
                 String urlStr = c.getResource(demoDesc.getDescriptionFileName()).toString();
                 this.chartDescription.getEngine().load(urlStr);
                 
-            } catch (ClassNotFoundException ex) {
-                LOGGER.log(Level.SEVERE, null, ex);
-            } catch (SecurityException ex) {
-                LOGGER.log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                LOGGER.log(Level.SEVERE, null, ex);
-            } catch (IllegalArgumentException ex) {
-                LOGGER.log(Level.SEVERE, null, ex);
-            } catch (InvocationTargetException ex) {
+            } catch (ClassNotFoundException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
                 LOGGER.log(Level.SEVERE, null, ex);
             }
 
@@ -377,7 +364,7 @@ public class OrsonChartsFXDemo extends Application {
     }
     
     private SplitPane createChartPane() {
-        CategoryDataset3D dataset = SampleData.createCompanyRevenueDataset();
+        CategoryDataset3D<String, String, String> dataset = SampleData.createCompanyRevenueDataset();
         Chart3D chart = AreaChart3DFXDemo1.createChart(dataset);
         Chart3DViewer viewer = new Chart3DViewer(chart);
       

@@ -10,7 +10,6 @@ module org.jfree.fx.demos {
     requires org.jfree.chart3d;
     requires org.jfree.chart3d.fx;
     requires org.jfree.pdf;
-    requires org.jfree.svg;
     requires org.jfree.jfreechart;
     requires org.jfree.chart.fx;
     requires org.jfree.fxgraphics2d;

@@ -72,7 +72,7 @@ public class FXGraphics2DDemo1 extends Application {
     
     static class ChartCanvas extends Canvas { 
         
-        JFreeChart chart;
+         final JFreeChart chart;
         
         private final FXGraphics2D g2;
         
@@ -465,7 +465,7 @@ public class FXGraphics2DDemo1 extends Application {
     }
 
     @Override 
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         XYDataset dataset = createDataset();
         JFreeChart chart = createChart(dataset); 
         ChartCanvas canvas = new ChartCanvas(chart);

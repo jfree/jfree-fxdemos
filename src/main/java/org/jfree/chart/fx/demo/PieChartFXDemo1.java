@@ -32,15 +32,6 @@
 
 package org.jfree.chart.fx.demo;
 
-import static javafx.application.Application.launch;
-
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.GradientPaint;
-import java.awt.Point;
-import java.awt.RadialGradientPaint;
-import java.awt.geom.Point2D;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -54,6 +45,9 @@ import org.jfree.chart.ui.RectangleEdge;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 
+import java.awt.*;
+import java.awt.geom.Point2D;
+
 /**
  * A pie chart demo in JavaFX.
  */
@@ -66,12 +60,12 @@ public class PieChartFXDemo1 extends Application {
      *
      * @return A sample dataset.
      */
-    private static PieDataset createDataset() {
-        DefaultPieDataset dataset = new DefaultPieDataset();
-        dataset.setValue("Samsung", new Double(27.8));
-        dataset.setValue("Others", new Double(55.3));
-        dataset.setValue("Nokia", new Double(16.8));
-        dataset.setValue("Apple", new Double(17.1));
+    private static PieDataset<String> createDataset() {
+        DefaultPieDataset<String> dataset = new DefaultPieDataset<>();
+        dataset.setValue("Samsung", 27.8);
+        dataset.setValue("Others", 55.3);
+        dataset.setValue("Nokia", 16.8);
+        dataset.setValue("Apple", 17.1);
         return dataset;
     }
     
@@ -82,7 +76,7 @@ public class PieChartFXDemo1 extends Application {
      *
      * @return A chart.
      */
-    private static JFreeChart createChart(PieDataset dataset) {
+    private static JFreeChart createChart(PieDataset<String> dataset) {
 
         JFreeChart chart = ChartFactory.createPieChart(
             "Smart Phones Manufactured / Q3 2011", dataset);
@@ -147,8 +141,8 @@ public class PieChartFXDemo1 extends Application {
     }
 
     @Override 
-    public void start(Stage stage) throws Exception {
-        PieDataset dataset = createDataset();
+    public void start(Stage stage) {
+        PieDataset<String> dataset = createDataset();
         JFreeChart chart = createChart(dataset); 
         ChartViewer viewer = new ChartViewer(chart);  
         stage.setScene(new Scene(viewer)); 

@@ -70,7 +70,6 @@ import org.jfree.chart3d.style.ChartStyler;
  * A demo showing category markers on a 3D bar chart plus many elements of
  * chart interactivity.
  */
-@SuppressWarnings("serial")
 public class CategoryMarkerFXDemo1 extends Application {
     
     static class CustomDemoNode extends BorderPane {
@@ -85,10 +84,8 @@ public class CategoryMarkerFXDemo1 extends Application {
         
         public CustomDemoNode(Chart3D chart) {
             this.chartViewer = new Chart3DViewer(chart);
-            this.chartViewer.addEventHandler(FXChart3DMouseEvent.MOUSE_CLICKED, 
-                    (FXChart3DMouseEvent event) -> {
-                        chartMouseClicked(event);
-                    });
+            this.chartViewer.addEventHandler(FXChart3DMouseEvent.MOUSE_CLICKED,
+                    this::chartMouseClicked);
             this.selectedRowKey = "Apple";
             this.selectedColumnKey = "Q4/12";
             this.itemLabelCheckBox = new CheckBox("Show item labels?");
@@ -147,7 +144,7 @@ public class CategoryMarkerFXDemo1 extends Application {
             return generator.getItemSelection();
         }
 
-        private void handleSelectItem(Comparable rowKey, Comparable columnKey) {
+        private void handleSelectItem(Comparable<String> rowKey, Comparable<String> columnKey) {
             Chart3D chart = this.chartViewer.getChart();
             chart.setNotify(false);
             CategoryPlot3D plot = getPlot();
@@ -174,11 +171,11 @@ public class CategoryMarkerFXDemo1 extends Application {
             chart.setNotify(true);
         }
         
-        private void handleSelectRow(Comparable rowKey) {
+        private void handleSelectRow(Comparable<String> rowKey) {
             handleSelectItem(rowKey, this.selectedColumnKey);
         }
         
-        private void handleSelectColumn(Comparable columnKey) {
+        private void handleSelectColumn(Comparable<String> columnKey) {
             handleSelectItem(this.selectedRowKey, columnKey);
         }
         
@@ -204,14 +201,11 @@ public class CategoryMarkerFXDemo1 extends Application {
                     }
                 } else if (InteractiveElementType.LEGEND_ITEM.equals(
                         element.getType())) {
-                    Comparable<?> seriesKey = (Comparable<?>) 
+                    Comparable<String> seriesKey = (Comparable<String>)
                             element.getProperty(Chart3D.SERIES_KEY);
                     // the row keys are the same as the series keys in 
                     // this chart
                     handleSelectRow(seriesKey);
-                } else {
-                    //JOptionPane.showMessageDialog(this, 
-                    //        Chart3D.renderedElementToString(element));
                 }
             }
         }
@@ -225,7 +219,7 @@ public class CategoryMarkerFXDemo1 extends Application {
      * 
      * @return A bar chart.
      */
-    private static Chart3D createChart(CategoryDataset3D dataset) {
+    private static Chart3D createChart(CategoryDataset3D<String, String, String> dataset) {
         Chart3D chart = Chart3DFactory.createBarChart("Quarterly Revenues", 
                 "For some large IT companies", dataset, null, "Quarter", 
                 "$billion Revenues");
@@ -261,14 +255,13 @@ public class CategoryMarkerFXDemo1 extends Application {
      * @return A node for the demo chart.
      */
     public static Node createDemoNode() {
-        CategoryDataset3D dataset = SampleData.createCompanyRevenueDataset();
+        CategoryDataset3D<String, String, String> dataset = SampleData.createCompanyRevenueDataset();
         Chart3D chart = createChart(dataset);
-        CustomDemoNode node = new CustomDemoNode(chart);
-        return node;
+        return new CustomDemoNode(chart);
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         StackPane sp = new StackPane();
         sp.getChildren().add(createDemoNode());
         Scene scene = new Scene(sp, 768, 512);

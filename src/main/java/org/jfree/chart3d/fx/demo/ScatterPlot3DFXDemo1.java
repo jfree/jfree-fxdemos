@@ -65,10 +65,9 @@ public class ScatterPlot3DFXDemo1 extends Application {
      * @return A node for the demo chart.
      */
     public static Node createDemoNode() {
-        XYZDataset dataset = createDataset();
+        XYZDataset<String> dataset = createDataset();
         Chart3D chart = createChart(dataset);
-        Chart3DViewer viewer = new Chart3DViewer(chart);
-        return viewer;
+        return new Chart3DViewer(chart);
     }
 
     /**
@@ -78,7 +77,7 @@ public class ScatterPlot3DFXDemo1 extends Application {
      * 
      * @return A scatter chart. 
      */
-    private static Chart3D createChart(XYZDataset dataset) {
+    private static Chart3D createChart(XYZDataset<String> dataset) {
         Chart3D chart = Chart3DFactory.createScatterChart("ScatterPlot3DDemo1", 
                 "Chart created with Orson Charts", dataset, "X", "Y", "Z");
         XYZPlot plot = (XYZPlot) chart.getPlot();
@@ -119,7 +118,7 @@ public class ScatterPlot3DFXDemo1 extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         StackPane sp = new StackPane();
         sp.getChildren().add(createDemoNode());
         Scene scene = new Scene(sp, 768, 512);
