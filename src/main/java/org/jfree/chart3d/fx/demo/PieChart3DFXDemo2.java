@@ -1,9 +1,8 @@
 /* ===================
  * Orson Charts - Demo
  * ===================
- * 
- * Copyright (c) 2013-2021, Object Refinery Limited.
- * All rights reserved.
+ *
+ * Copyright 2014-2022 by David Gilbert. All rights reserved.
  *
  * https://github.com/jfree/jfree-fxdemos
  *

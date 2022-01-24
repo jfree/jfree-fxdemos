@@ -10,7 +10,7 @@
 
     <groupId>org.jfree</groupId>
     <artifactId>org.jfree.fx.demos</artifactId>
-    <version>2.1</version>
+    <version>2.2</version>
     <packaging>jar</packaging>
 
     <organization>
@@ -37,8 +37,6 @@
       <developer>
         <name>David Gilbert</name>
         <email>dave@jfree.org</email>
-        <organization>Object Refinery Limited</organization>
-        <organizationUrl>http://www.object-refinery.com</organizationUrl>
       </developer>
     </developers>
 
@@ -46,22 +44,22 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>16</version>
+            <version>17.0.2</version>
         </dependency>  
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
-            <version>16</version>
+            <version>17.0.2</version>
         </dependency>  
         <dependency>
             <groupId>org.jfree</groupId>
             <artifactId>org.jfree.chart3d</artifactId>
-            <version>2.0</version>
+            <version>2.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.jfree</groupId>
             <artifactId>org.jfree.chart3d.fx</artifactId>
-            <version>2.1</version>
+            <version>2.1.1</version>
         </dependency>
 
         <dependency>
@@ -79,7 +77,7 @@
         <dependency>
             <groupId>org.jfree</groupId>
             <artifactId>org.jfree.svg</artifactId>
-            <version>4.0</version>            
+            <version>5.0.2</version>            
         </dependency>
         <dependency>
             <groupId>org.jfree</groupId>
@@ -98,7 +96,7 @@
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.6</version>
+                <version>0.0.8</version>
                 <configuration>
                     <mainClass>org.jfree.chart3d.fx.demo.OrsonChartsFXDemo</mainClass>
                 </configuration>
@@ -125,7 +123,7 @@
                 <inherited>true</inherited>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.3.0</version>
+                <version>3.3.1</version>
                 <configuration>
                     <docfilessubdirs>true</docfilessubdirs>
                     <linksource>true</linksource>
