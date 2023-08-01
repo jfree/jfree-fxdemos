@@ -41,9 +41,14 @@ import java.awt.Dimension;
 import java.awt.geom.Dimension2D;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.jpro.webapi.HTMLView;
+import com.jpro.webapi.WebAPI;
 import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Orientation;
@@ -83,7 +88,7 @@ public class OrsonChartsFXDemo extends Application {
     
     private SplitPane splitter;
         
-    private WebView chartDescription;
+    private StackPane chartDescription;
 
     /**
      * Creates a new demo instance.
@@ -115,17 +120,33 @@ public class OrsonChartsFXDemo extends Application {
         Tab tab2 = new Tab();
         tab2.setText("About");
         tab2.setClosable(false);
-        
-        WebView browser = new WebView();
-        WebEngine webEngine = browser.getEngine();
-        webEngine.load(getClass().getResource("/org/jfree/chart3d/fx/demo/about.html").toString());
+        Node browser = createHTMLNode("/org/jfree/chart3d/fx/demo/about.html");
         tab2.setContent(browser);
-        tabPane.getTabs().add(tab2);        
+        tabPane.getTabs().add(tab2);
 
         Scene scene = new Scene(tabPane, 1024, 768);
         stage.setScene(scene);
         stage.setTitle("Orson Charts JavaFX Demo");
         stage.show();
+    }
+
+    private Node createHTMLNode(String resource) {
+        if(WebAPI.isBrowser()) {
+            try {
+                HTMLView htmlView = new HTMLView();
+                URL urlo = getClass().getResource(resource);
+                String content = new String(Files.readAllBytes(Paths.get(urlo.toURI())));
+                htmlView.setContent(content);
+                return htmlView;
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            WebView browser = new WebView();
+            WebEngine webEngine = browser.getEngine();
+            webEngine.load(getClass().getResource(resource).toString());
+            return browser;
+        }
     }
     
     private static final String ABOUT_PREFIX = "/org/jfree/chart3d/fx/demo/";
@@ -359,8 +380,10 @@ public class OrsonChartsFXDemo extends Application {
                     canvas.heightProperty().bind(borderPane.heightProperty());                
                     canvas.zoomToFit(canvas.getWidth(), canvas.getHeight());
                 }
-                String urlStr = c.getResource(demoDesc.getDescriptionFileName()).toString();
-                this.chartDescription.getEngine().load(urlStr);
+                //String urlStr = c.getResource(demoDesc.getDescriptionFileName()).toString();
+                //this.chartDescription.getEngine().load(urlStr);
+                this.chartDescription.getChildren().clear();
+                this.chartDescription.getChildren().add(createHTMLNode(demoDesc.getDescriptionFileName()));
                 
             } catch (ClassNotFoundException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
                 LOGGER.log(Level.SEVERE, null, ex);
@@ -386,11 +409,10 @@ public class OrsonChartsFXDemo extends Application {
 
         final StackPane sp2 = new StackPane();
         
-        this.chartDescription = new WebView();
-        WebEngine webEngine = chartDescription.getEngine();
-        webEngine.load(AreaChart3DFXDemo1.class.getResource("AreaChart3DFXDemo1.html").toString());
-        
-        sp2.getChildren().add(chartDescription);  
+        this.chartDescription = new StackPane();
+        this.chartDescription.getChildren().add(createHTMLNode("/org/jfree/chart3d/fx/demo/AreaChart3DFXDemo1.html"));
+        sp2.getChildren().add(chartDescription);
+
         splitter.getItems().addAll(borderPane, sp2);
         splitter.setDividerPositions(0.70f, 0.30f);
         return splitter;
