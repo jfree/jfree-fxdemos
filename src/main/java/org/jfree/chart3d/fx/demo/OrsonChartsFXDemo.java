@@ -42,10 +42,12 @@ import java.awt.geom.Dimension2D;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.*;
 
 import com.jpro.webapi.HTMLView;
 import com.jpro.webapi.WebAPI;
@@ -66,6 +68,8 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
+
 import org.jfree.chart3d.Chart3D;
 import org.jfree.chart3d.data.Dataset3D;
 import org.jfree.chart3d.data.category.CategoryDataset3D;
@@ -134,8 +138,12 @@ public class OrsonChartsFXDemo extends Application {
         if(WebAPI.isBrowser()) {
             try {
                 HTMLView htmlView = new HTMLView();
-                URL urlo = getClass().getResource(resource);
-                String content = new String(Files.readAllBytes(Paths.get(urlo.toURI())));
+                InputStream is = getClass().getResourceAsStream(resource);
+
+                String content = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))
+                        .lines()
+                        .collect(Collectors.joining("\n"));
+
                 htmlView.setContent(content);
                 return htmlView;
             } catch (Exception e) {
