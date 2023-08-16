@@ -40,6 +40,20 @@
       </developer>
     </developers>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jpro - sandec repository</id>
+            <url>https://sandec.jfrog.io/artifactory/repo/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <repositories>
+        <repository>
+            <id>jpro - sandec repository</id>
+            <url>https://sandec.jfrog.io/artifactory/repo/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -83,6 +97,12 @@
             <groupId>org.jfree</groupId>
             <artifactId>org.jfree.pdf</artifactId>
             <version>2.0</version>            
+        </dependency>
+
+        <dependency>
+            <groupId>com.sandec.jpro</groupId>
+            <artifactId>jpro-webapi</artifactId>
+            <version>${jpro.version}</version>
         </dependency>
     </dependencies>
     
@@ -171,12 +191,22 @@
                 <artifactId>maven-install-plugin</artifactId>
                 <version>3.0.0-M1</version>
             </plugin>
+
+            <plugin>
+                <groupId>one.jpro</groupId>
+                <artifactId>jpro-maven-plugin</artifactId>
+                <version>${jpro.version}</version>
+                <configuration>
+                    <mainClassName>org.jfree.chart3d.fx.demo.OrsonChartsFXDemo</mainClassName>
+                </configuration>
+            </plugin>
         </plugins> 
 
     </build>
 
 
     <properties>
+        <jpro.version>2023.2.2-SNAPSHOT</jpro.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.source.level>11</project.source.level>
         <project.target.level>11</project.target.level>
