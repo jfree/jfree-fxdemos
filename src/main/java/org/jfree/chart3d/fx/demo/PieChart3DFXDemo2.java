@@ -95,7 +95,7 @@ public class PieChart3DFXDemo2 extends Application {
      */
     private static Chart3D createChart(PieDataset3D<String> dataset) {
         final Chart3D chart = Chart3DFactory.createPieChart("Orson Charts 3D", 
-            "For more info see: http://www.object-refinery.com/orsoncharts/", 
+            "For more info see: https://github.com/jfree/orson-charts",
             dataset);
         chart.setTitleAnchor(TitleAnchor.TOP_LEFT);
         PiePlot3D plot = (PiePlot3D) chart.getPlot();
